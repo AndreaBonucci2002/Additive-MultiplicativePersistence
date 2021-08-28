@@ -1,0 +1,33 @@
+number = input("Number:")
+print('Additive persistence chain:')
+
+
+def addpers(num,count = 0):
+    value = 0
+    if len(str(num)) == 1:
+        print('Additive persistence = ' + str(count))
+        return ''
+    else:
+        for digit in str(num):
+            value += int(digit)
+        print(value)
+        return addpers(value, count + 1)
+
+
+print(addpers(number))
+print('Multiplicative persistence chain:')
+
+
+def multiper(num,count = 0):
+    value = 1
+    if len(str(num)) == 1:
+        print('Multiplicative persistence = ' + str(count))
+        return ''
+    else:
+        for digit in str(num):
+            value *= int(digit)
+        print(value)
+        return multiper(value, count + 1)
+
+
+print(multiper(number))
